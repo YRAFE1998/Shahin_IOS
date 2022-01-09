@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View } from "react-native";
 import { Modal, ModalContent } from 'react-native-modals';
-import { Link } from "react-router-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -52,7 +51,7 @@ const Memories = ({navigation}) =>{
            
             <TouchableOpacity onPress={() => setJarOpen(true)}>
             <Image
-            elevation={5}
+            
                 resizeMode="contain"
                 style={styles.tinyLogo}
                 source={require('../src/public/images/Asset4.png')}
@@ -67,7 +66,7 @@ const Memories = ({navigation}) =>{
                 <Image
                 resizeMode="contain"
                 style={styles.tinyLogo}
-                source={require('../src/public/images/Asset6.png')}
+                source={require('../src/public/images/Asset7.png')}
             />
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{setPickUpLinesOpen(true);setPickUpLineText(morningTextList[Math.floor(Math.random()*3)]);}}
@@ -76,7 +75,7 @@ const Memories = ({navigation}) =>{
             <Image
                 resizeMode="contain"
                 style={styles.tinyLogo}
-                source={require('../src/public/images/Asset3.png')}
+                source={require('../src/public/images/Asset9.png')}
             />
             </TouchableOpacity>
         </View>
@@ -87,7 +86,7 @@ const Memories = ({navigation}) =>{
                 <Image
                 resizeMode="contain"
             style={styles.tinyLogo}
-            source={require('../src/public/images/Asset7.png')}
+            source={require('../src/public/images/Asset3.png')}
             />
             </TouchableOpacity>
 
@@ -105,13 +104,13 @@ const Memories = ({navigation}) =>{
         <Image                
             resizeMode="contain"
             style={styles.tinyLogo}
-            source={require('../src/public/images/Asset9.png')}
+            source={require('../src/public/images/Asset10.png')}
         />
         </TouchableOpacity>
         <Image
             resizeMode="contain"
             style={styles.tinyLogo}
-            source={require('../src/public/images/Asset10.png')}
+            source={require('../src/public/images/Asset6.png')}
         />
         </View>
         
@@ -298,7 +297,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
-        elevation: 6,
+        elevation:6
     },
     shadow:{
         shadowColor: "#000",

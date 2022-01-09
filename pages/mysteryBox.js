@@ -6,7 +6,6 @@ import { Image, TouchableOpacity, View } from "react-native";
 const Sound = require('react-native-sound');
 
 const dan = require('../src/public/images/danger.png');
-const danPressed = require('../src/public/images/dangerClicked.png');
 
 const data = 
     [
@@ -16,7 +15,7 @@ const data =
               console.log(error)
             }
           }),
-        image:require('../src/public/images/2.png')
+        image:require('../src/public/images/flowers.jpg')
     },
     {
         sound:new Sound('aud2.mp3', Sound.MAIN_BUNDLE, (error) => {
@@ -24,7 +23,7 @@ const data =
               console.log(error)
             }
           }),
-        image:require('../src/public/images/2.png')
+        image:require('../src/public/images/mountain.jpg')
     },
     {
         sound:new Sound('aud1.mp3', Sound.MAIN_BUNDLE, (error) => {
@@ -32,30 +31,28 @@ const data =
               console.log(error)
             }
           }),
-        image:require('../src/public/images/2.png')
-    },
-    {
-        sound:new Sound('aud2.mp3', Sound.MAIN_BUNDLE, (error) => {
-            if (error) {
-              console.log(error)
-            }
-          }),
-        image:require('../src/public/images/1.png')
+        image:require('../src/public/images/lovestory.jpg')
     }];
 
 const MysteryBox = (props) =>{
+    const [disabled, setDisabled] = useState(false);
     const [genratedMystery, setGeneratedMystery] = useState(0);
     const [dangerPressed, setDangerPressed] = useState(false);
 
     useEffect(()=>{
-        data[genratedMystery].sound.play((success) => {
+        const so = data[genratedMystery];
+        so.sound.play((success) => {
             if (!success) {
               console.log('Sound did not play')
             }
           });
-    },[genratedMystery])
+        setDisabled(true);
+        window.setTimeout(()=>{
+          setDisabled(false);
+        },so.sound.getDuration()*1000);
+    },[genratedMystery]);
     const handlePress = () =>{
-        let rand = Math.floor(Math.random()*4);
+        let rand = Math.floor(Math.random()*3);
         setDangerPressed(true);
         setGeneratedMystery(rand);
     }
@@ -68,6 +65,7 @@ const MysteryBox = (props) =>{
                 <Image source={data[genratedMystery].image} />
             </Card>
             <TouchableOpacity
+                disabled={disabled}
                 onPress={()=> handlePress()}
                 style={{margin:10, flex:1}}
             >

@@ -98,42 +98,35 @@ const BottomNav = () =>{
     onSelect={index => {console.log(index);setSelectedIndex(index);navigation.navigate(navList[index]);}}>
 
       <BottomNavigationTab 
-        icon={ <Icon
-          style={styles.icon}
-          name='heart'
-        />
+        icon={           
+        <Image resizeMode="contain" source={require('./src/public/images/Asset12.png')}></Image>
         }
         />
       
 
       <BottomNavigationTab 
-        icon={<Icon
-          style={styles.icon}
-          name='star'
-        />}    
+        icon={
+          <Image resizeMode="contain" source={require('./src/public/images/Asset15.png')}></Image>
+        }    
       />
 
       <BottomNavigationTab 
         icon={
-          <Icon
-          style={styles.icon}
-          name='home'
-        />}    
+          <Image resizeMode="contain" source={require('./src/public/images/Asset13.png')}></Image>
+        }    
       />      
       
 
       <BottomNavigationTab
-        icon={<Icon
-          style={styles.icon}
-          name='gift'
-        />}
+        icon={
+          <Image resizeMode="contain" source={require('./src/public/images/Asset14.png')}></Image>
+        }
         />
 
       <BottomNavigationTab
-        icon={<Icon
-          style={styles.icon}
-          name='book-open'
-        />}
+        icon={          
+        <Image resizeMode="contain" source={require('./src/public/images/Asset11.png')}></Image>
+      }
       />
      </BottomNavigation>
 

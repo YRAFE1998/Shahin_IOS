@@ -5,21 +5,23 @@ import {Calendar} from 'react-native-calendars';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import { mapping, light as lightTheme } from '@eva-design/eva';
 import moment from "moment";
-const months = ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const months = ["january", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 const Notes = (props) => {
 
     const [markedDay, setMarkedDay] = useState({});
     const [showView, setShowView] = useState(0);
     const [writtenText, setWrittenText] = useState('');
-    const x = useRef(null);
 
     const getSelectedDayEvents = date => {
         let markedDates = {};
         markedDates[date] = { selected: true, color: '#00B0BF', textColor: '#FFFFFF' };
+        console.log("Getting date");
         let serviceDate = moment(date);
+        console.log("setting service date format");
         serviceDate = serviceDate.format("DD.MM.YYYY");
-        setMarkedDay(markedDates)
+        console.log("setting state");
+        setMarkedDay(markedDates);
     };
 
     const view = () => {
@@ -38,10 +40,6 @@ const Notes = (props) => {
             // Handler which gets executed on day press. Default = undefined
             onDayPress={day => {
                 getSelectedDayEvents(day.dateString);
-            }}
-            // Handler which gets executed on day long press. Default = undefined
-            onDayLongPress={day => {
-              console.log('selected day', day);
             }}
             markedDates={markedDay}
             scrollEnabled={true}
